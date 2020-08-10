@@ -28,22 +28,35 @@ const renderUserResponse = userResponse => {
 
   return `
   <div class = "user-response">
-  <img src = "https://drive.google.com/thumbnail?id=${googlePhotoId}" alt = "Hobby picture"/>
-  <h2>${personsName}</h2>
-  <h3>My favorite hobby is ${hobbyName}<h3>
-  <h4>I have been doing this for ${hobbyTime}<h4>
-  <h4>Is this typically done indoors or outdoors? <strong>${location}</strong><h4>
-  <h4>I am typically able to do this ${cadence}<h4>
-  <p>Why do I enjoy this? ${description}<p>
-  
-  
+  <img class = "hoverClass" src = "https://drive.google.com/thumbnail?id=${googlePhotoId}" alt = "Hobby picture"/>
+  <h2 class = "nameClass">${personsName}</h2>
+  <h3 class = "myHobby">My favorite hobby is ${hobbyName}, and I have been doing this for ${hobbyTime}<h3>
 
+  <section class="listOfQuestions">
 
+  <h3 class = "question">Why do you do this?<h3>
+  <h4 class= "answer" >${whyDoYouDoThis}</h4>
 
+  <h3 class = "question">How often are you able to do this?<h3>
+  <h4>${cadence}</h4>
 
+  <h3 class = "question">Is this typically done indoors or outdoors?<h3>
+  <h4>${location}</h4>
+
+  <h3 class = "question">Why do I enjoy this? <h3>
+  <h4 class = "response">${description}<h4>
+
+  </section>
   </div>
   `;
 };
+
+// const handleMouseMove = () => {
+//   renderUserResponse.style.color = 'blue';
+// };
+
+// window.addEventListener('mousemove', handleMouseMove);
+
 const fetchAndShowResponses = async () => {
   await fetchUserResponses();
   const eachUserResponseHTML = responses.map(renderUserResponse);
