@@ -64,4 +64,27 @@ const fetchAndShowResponses = async () => {
   userResponsesSection.innerHTML = allUserResponsesHTML;
 };
 
+const howLongData{
+  "&lt 3 months": 0,
+  "3 - 12 months": 0,
+  "1 - 3 years": 0,
+  "> 3 years": 0,
+}
+
+responses.forEach(response => {
+  howLongData[response[question]] +=1
+})
+
+var Chart = ('pie-chart', {
+  type: 'pie',
+  data: {
+    datasets[{
+      data: Object.values(howLongData),
+      backgroundColor:['blue', 'red', 'white']
+      
+    }]
+  },
+  
+});
+
 fetchAndShowResponses();
